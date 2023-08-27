@@ -6,10 +6,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
+import CloseFriend from "../closeFriend/CloseFriend";
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
+
   const { user: currentUser, dispatch } = useContext(AuthContext);
   const [followed, setFollowed] = useState(
     currentUser.followings.includes(user?.id)
@@ -41,24 +43,36 @@ export default function Rightbar({ user }) {
         dispatch({ type: "FOLLOW", payload: user._id });
       }
       setFollowed(!followed);
-    } catch (err) {
-    }
+    } catch (err) {}
   };
 
   const HomeRightbar = () => {
+    const [allUser, setAllUser] = useState([]);
+
+    useEffect(() => {
+      const getAllUser = async () => {
+        try {
+          const res = await axios.get("/users/allUser");
+          setAllUser(res.data);
+          console.log("all", res.data); // Log the fetched data
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getAllUser();
+    }, []);
+    
     return (
       <>
-        <div className="birthdayContainer">
-          <img className="birthdayImg" src="assets/gift.png" alt="" />
-          <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
-          </span>
-        </div>
-        <img className="rightbarAd" src="assets/ad.png" alt="" />
-        <h4 className="rightbarTitle">Online Friends</h4>
+        <h4 className="rightbarTitle">ALL Users</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => (
+          {/* {Users.map((u) => (
             <Online key={u.id} user={u} />
+          ))} */}
+          {/* <ul className="sidebarFriendList"> */}
+          
+          {allUser.map((u) => (
+            <CloseFriend key={u.id} user={u} />
           ))}
         </ul>
       </>
@@ -100,8 +114,7 @@ export default function Rightbar({ user }) {
           {friends.map((friend) => (
             <Link
               to={"/profile/" + friend.username}
-              style={{ textDecoration: "none" }}
-            >
+              style={{ textDecoration: "none" }}>
               <div className="rightbarFollowing">
                 <img
                   src={

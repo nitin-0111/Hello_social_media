@@ -21,7 +21,7 @@ export default function Profile() {
   }, [username]);
 
   return (
-    <>
+  <>
       <Topbar />
       <div className="profile">
         <Sidebar />

@@ -1,9 +1,11 @@
 .profile{
     display: flex;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .profileRight{
-    flex: 9;
+    flex: 11;
 }
 
 .profileCover{

@@ -1,15 +1,19 @@
 import "./sidebar.css";
 import {
-  RssFeed,
-  Chat,
-  PlayCircleFilledOutlined,
-  Group,
+  // RssFeed,
+  Home,
+  Search,
+  Notifications,
+  Message,
+  ListAlt,
   Bookmark,
-  HelpOutline,
-  WorkOutline,
-  Event,
-  School,
+  People,
+  VerifiedUser,
+  PersonOutline,
+  MoreHorizOutlined
 } from "@material-ui/icons";
+// import HomeIcon from '@mui/icons-material/Home';
+
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 
@@ -19,49 +23,56 @@ export default function Sidebar() {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <RssFeed className="sidebarIcon" />
-            <span className="sidebarListItemText">Feed</span>
+            <Home className="sidebarIcon" />
+            <span className="sidebarListItemText">Home</span>
           </li>
           <li className="sidebarListItem">
-            <Chat className="sidebarIcon" />
-            <span className="sidebarListItemText">Chats</span>
+            <Search className="sidebarIcon" />
+            <span className="sidebarListItemText">Explore</span>
           </li>
           <li className="sidebarListItem">
-            <PlayCircleFilledOutlined className="sidebarIcon" />
-            <span className="sidebarListItemText">Videos</span>
+            <Notifications className="sidebarIcon" />
+            <span className="sidebarListItemText">Notifications</span>
           </li>
           <li className="sidebarListItem">
-            <Group className="sidebarIcon" />
-            <span className="sidebarListItemText">Groups</span>
+            <Message className="sidebarIcon" />
+            <span className="sidebarListItemText">Message</span>
+          </li>
+          <li className="sidebarListItem">
+            <ListAlt className="sidebarIcon" />
+            <span className="sidebarListItemText">List</span>
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
             <span className="sidebarListItemText">Bookmarks</span>
           </li>
           <li className="sidebarListItem">
-            <HelpOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Questions</span>
+            <People className="sidebarIcon" />
+            <span className="sidebarListItemText">Communities</span>
           </li>
           <li className="sidebarListItem">
-            <WorkOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Jobs</span>
+            <VerifiedUser className="sidebarIcon" />
+            <span className="sidebarListItemText">Verified</span>
           </li>
           <li className="sidebarListItem">
-            <Event className="sidebarIcon" />
-            <span className="sidebarListItemText">Events</span>
+            <PersonOutline className="sidebarIcon" />
+            <span className="sidebarListItemText">Profile</span>
           </li>
           <li className="sidebarListItem">
-            <School className="sidebarIcon" />
-            <span className="sidebarListItemText">Courses</span>
+            <MoreHorizOutlined className="sidebarIcon" />
+            <span className="sidebarListItemText">More</span>
           </li>
         </ul>
-        <button className="sidebarButton">Show More</button>
+        
         <hr className="sidebarHr" />
+        {/* <h3> Friends</h3>
         <ul className="sidebarFriendList">
           {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}
-        </ul>
+        </ul> */}
+
+        
       </div>
     </div>
   );

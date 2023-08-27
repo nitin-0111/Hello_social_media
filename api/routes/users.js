@@ -26,6 +26,8 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+
+
 //delete user
 router.delete("/:id", async (req, res) => {
   if (req.body.userId === req.params.id || req.body.isAdmin) {
@@ -74,6 +76,24 @@ router.get("/friends/:userId", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/allUser", async (req, res) => {
+  try {
+    const allUsers = await User.find({});
+
+     let Alluser = [];
+    allUsers.map((user) => {
+      const { _id, username, profilePicture } = user;
+      Alluser.push({ _id, username, profilePicture });
+    });
+     console.log("all", Alluser);
+    res.status(200).json(Alluser); // Sending the response
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 //follow a user
 

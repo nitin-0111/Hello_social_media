@@ -41,6 +41,7 @@ export default function Share() {
 
   return (
     <div className="share">
+      {console.log(user)}
       <div className="shareWrapper">
         <div className="shareTop">
           <img
@@ -53,7 +54,7 @@ export default function Share() {
             alt=""
           />
           <input
-            placeholder={"What's in your mind " + user.username + "?"}
+            placeholder={`Hey! ${user.username} Want to Say Something ?`  }
             className="shareInput"
             ref={desc}
           />
@@ -68,26 +69,26 @@ export default function Share() {
         <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">
-              <PermMedia htmlColor="tomato" className="shareIcon" />
+              <PermMedia htmlColor="#4a1ecf" className="shareIcon" />
               <span className="shareOptionText">Photo or Video</span>
               <input
                 style={{ display: "none" }}
                 type="file"
                 id="file"
-                accept=".png,.jpeg,.jpg"
+                accept=".png,.jpeg,.jpg,.pdf"
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>
             <div className="shareOption">
-              <Label htmlColor="blue" className="shareIcon" />
+              <Label htmlColor=" #4a1ecf" className="shareIcon" />
               <span className="shareOptionText">Tag</span>
             </div>
             <div className="shareOption">
-              <Room htmlColor="green" className="shareIcon" />
+              <Room htmlColor=" #4a1ecf" className="shareIcon" />
               <span className="shareOptionText">Location</span>
             </div>
             <div className="shareOption">
-              <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
+              <EmojiEmotions htmlColor=" #4a1ecf" className="shareIcon" />
               <span className="shareOptionText">Feelings</span>
             </div>
           </div>
