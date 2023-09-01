@@ -35,8 +35,8 @@ Follow these steps to get started with the "Hello!!! : Social Networking Website
 1. Clone this repository:
 
    ```bash
-   git clone [https://github.com/yourusername/hello-social-network.git
-   cd hello-social-network](https://github.com/nitin-0111/Hello_social_media.git)https://github.com/nitin-0111/Hello_social_media.git
+   git clone https://github.com/yourusername/hello-social-network.git
+   cd hello-social-network
 
   This will create a local copy of the project on your machine.
 2. Install Package Dependencies:
